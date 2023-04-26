@@ -9,7 +9,21 @@ const model = new OpenAI({
 });
 
 const res = await model.call(
-  "What is the translation of Operator theory in Chinese?"
+  "Can you write some code segments that each shows Hello World in the C, Rust, R, Java, Perl, and Python programming languages?"
 );
 
 console.log(res);
+
+const codeRegex = /```([\s\S]*?)```/g;
+const codeSnippets = [];
+
+let match;
+  while ((match = codeRegex.exec(res)) !== null) {
+    codeSnippets.push(match[1]);
+  }
+
+  console.log("------------------------------");  
+  let aStr = "Total Code Segments:" + codeSnippets.length;
+
+  console.log(aStr);
+  console.log(codeSnippets);
