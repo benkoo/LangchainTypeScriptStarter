@@ -9,7 +9,7 @@ const model = new OpenAI({
 });
 
 const res = await model.call(
-  "What's a good idea for an application to build with GPT-3?"
+  "What is the translation of Operator theory in Chinese?"
 );
 
 console.log(res);
