@@ -23,5 +23,7 @@ let match;
   }
 
   console.log("------------------------------");  
-  console.log("Total Code Segments:" + codeSnippets.length);
+  let aStr = "Total Code Segments:" + codeSnippets.length;
+
+  console.log(aStr);
   console.log(codeSnippets);
