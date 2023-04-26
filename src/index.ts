@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import * as dotenv from "dotenv";
 import { OpenAI } from "langchain";
 
@@ -18,12 +19,20 @@ const codeRegex = /```([\s\S]*?)```/g;
 const codeSnippets = [];
 
 let match;
+  // eslint-disable-next-line no-cond-assign
   while ((match = codeRegex.exec(res)) !== null) {
     codeSnippets.push(match[1]);
   }
 
   console.log("------------------------------");  
-  let aStr = "Total Code Segments:" + codeSnippets.length;
+  const TEMP_SIGNAGE = `Total Code Segments:${  codeSnippets.length}`;
 
-  console.log(aStr);
-  console.log(codeSnippets);
+  console.log(TEMP_SIGNAGE);
+
+  let idx = 0;
+  for (const snippet of codeSnippets) {
+    idx ++;
+    console.log(`${idx  }\n`);
+    console.log(snippet);
+
+  }
